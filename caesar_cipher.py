@@ -17,4 +17,17 @@ def encrypt(plain_text, shift_amount):
     print(f"The cypher text is {cipher_text}.")
 
 
-encrypt(plain_text=text, shift_amount=shift)
+def decrypt(cipher_text, shift_amount):
+    plain_text = ""
+    for letter in cipher_text:
+        postion = alphabet.index(letter)
+        new_position = postion - shift_amount
+        plain_text += alphabet[new_position]
+    print(f"The decode test is {plain_text}")
+
+
+# checking the 'direction' variable. Then call the correct function based on that 'drection' variable. You should be able to test the code to encrypt *AND* decrypt a message.
+if direction == "encode":
+    encrypt(plain_text=text, shift_amount=shift)
+elif direction == "decode":
+    decrypt(cipher_text=text, shift_amount=shift)
